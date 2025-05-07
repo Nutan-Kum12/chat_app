@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class MyTextfield extends StatefulWidget {
   final String hintText;
   final bool isPassword;
+  final TextEditingController controller;
 
   const MyTextfield({
     super.key,
-    this.hintText = '',
+    required this.hintText,
     this.isPassword = false,
+    required this.controller ,
   });
 
   @override
@@ -30,10 +32,10 @@ class _MyTextfieldState extends State<MyTextfield> {
             hintText: widget.hintText,
             hintStyle: TextStyle(
               color: Theme.of(context).colorScheme.primary.withValues(),
-              fontSize:screenHeight * 0.04,
+              fontSize:screenHeight * 0.02,
             ),
             contentPadding: EdgeInsets.symmetric(
-              vertical: screenHeight * 0.02,
+              vertical: screenHeight * 0.016,
               horizontal:16,
             ),
             enabledBorder: OutlineInputBorder(

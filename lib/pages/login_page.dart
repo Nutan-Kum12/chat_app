@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider_tutorial/components/my_textfield.dart';
+import 'package:provider_tutorial/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final TextEditingController _emailController=TextEditingController();
+  final TextEditingController _pwController=TextEditingController();
 
+  LoginPage({super.key});
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -30,22 +33,32 @@ class _LoginPageState extends State<LoginPage> {
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
+          SizedBox(height: 10),
           MyTextfield(
           hintText: 'Email',
-          
+          isPassword: false,
+          controller: widget._emailController,
           ),
           SizedBox(height: 10),
           MyTextfield(
           hintText: 'Password',
           isPassword: true,
+          controller: widget._pwController,
           ),
           SizedBox(height: 10),
           MyTextfield(
           hintText: ' Confirm Password',
           isPassword: true,
+          controller: widget._pwController,
           ),
           // email text field
           // password text field
+
+          ElevatedButton(onPressed:()
+          {
+            Navigator.push(context, MaterialPageRoute(builder:(context)=>HomePage()));
+          }, 
+          child:Text('Login')),
           // login button
           // register button
         ],),
