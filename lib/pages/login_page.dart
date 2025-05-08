@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider_tutorial/components/my_buttom.dart';
 import 'package:provider_tutorial/components/my_textfield.dart';
 import 'package:provider_tutorial/pages/home_page.dart';
 
@@ -9,6 +10,9 @@ class LoginPage extends StatefulWidget {
   LoginPage({super.key});
   @override
   State<LoginPage> createState() => _LoginPageState();
+}
+void login(){
+
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -53,13 +57,35 @@ class _LoginPageState extends State<LoginPage> {
           ),
           // email text field
           // password text field
-
-          ElevatedButton(onPressed:()
-          {
-            Navigator.push(context, MaterialPageRoute(builder:(context)=>HomePage()));
-          }, 
-          child:Text('Login')),
+          SizedBox(height: 10),
+          CustomButton(
+            text: 'Login',
+            onPressed: () {
+             login;
+            },
+          ),
           // login button
+          SizedBox(height: 10),
+         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Not a member?'),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              },
+              child: Text('Register Now',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+         )
           // register button
         ],),
       ),
