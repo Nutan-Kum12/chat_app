@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider_tutorial/pages/login_page.dart';
+import 'package:provider_tutorial/pages/register_page.dart';
 import 'package:provider_tutorial/themes/light_theme.dart';
 
 void main() {
@@ -14,8 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: lightMode,
-      home: LoginPage(
-      ),
+      home: RegisterPage(),
     );
   }
 }

@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:provider_tutorial/components/my_buttom.dart';
 import 'package:provider_tutorial/components/my_textfield.dart';
 import 'package:provider_tutorial/pages/home_page.dart';
-
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final TextEditingController _emailController=TextEditingController();
   final TextEditingController _pwController=TextEditingController();
+  final TextEditingController _confirmPwController=TextEditingController();
 
-  LoginPage({super.key});
+  RegisterPage({super.key});
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
-void login(){
+void register(){
   
 }
-
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
           Icon(Icons.message),
              //welcome back 
           Text(
-            'Welcome back',
+            "Let's create an account for you",
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -50,13 +49,18 @@ class _LoginPageState extends State<LoginPage> {
           controller: widget._pwController,
           ),
           SizedBox(height: 10),
+          MyTextfield(
+          hintText: ' Confirm Password',
+          isPassword: true,
+          controller: widget._confirmPwController,
+          ),
           // email text field
           // password text field
           SizedBox(height: 10),
           CustomButton(
-            text: 'Login',
+            text: 'Register',
             onPressed: () {
-             login;
+              register();
             },
           ),
           // login button

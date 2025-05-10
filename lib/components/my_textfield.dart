@@ -30,6 +30,7 @@ class _MyTextfieldState extends State<MyTextfield> {
           obscureText: widget.isPassword ? _obscureText : false,
           decoration: InputDecoration(
             hintText: widget.hintText,
+            filled: true,
             hintStyle: TextStyle(
               color: Theme.of(context).colorScheme.primary.withValues(),
               fontSize:screenHeight * 0.02,
