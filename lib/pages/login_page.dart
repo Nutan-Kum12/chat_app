@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:provider_tutorial/components/my_buttom.dart';
 import 'package:provider_tutorial/components/my_textfield.dart';
 import 'package:provider_tutorial/pages/home_page.dart';
+import 'package:provider_tutorial/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   final TextEditingController _emailController=TextEditingController();
   final TextEditingController _pwController=TextEditingController();
 
-  LoginPage({super.key});
+  // tap to go to register page
+  final void Function()? onTap;
+
+  LoginPage({super.key,required this.onTap});
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -64,21 +68,13 @@ class _LoginPageState extends State<LoginPage> {
          Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Not a member?'),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              },
-              child: Text('Register Now',
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.inversePrimary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+            Text('Not a member?',
+            style: 
+            TextStyle(color:Theme.of(context).colorScheme.primary),
             ),
+            GestureDetector(
+              onTap: widget.onTap,
+              child: Text("Register Now "))
           ],
          )
           // register button

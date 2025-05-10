@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:provider_tutorial/components/my_buttom.dart';
 import 'package:provider_tutorial/components/my_textfield.dart';
 import 'package:provider_tutorial/pages/home_page.dart';
+import 'package:provider_tutorial/pages/login_page.dart';
 class RegisterPage extends StatefulWidget {
   final TextEditingController _emailController=TextEditingController();
   final TextEditingController _pwController=TextEditingController();
   final TextEditingController _confirmPwController=TextEditingController();
 
-  RegisterPage({super.key});
+  // tap to go to register page
+  final void Function()? onTap;
+
+  RegisterPage({super.key,required this.onTap});
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
@@ -65,24 +69,16 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           // login button
           SizedBox(height: 10),
-         Row(
+                Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Not a member?'),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              },
-              child: Text('Register Now',
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.inversePrimary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+            Text('Akready have an account?',
+            style: 
+            TextStyle(color:Theme.of(context).colorScheme.primary),
             ),
+            GestureDetector(
+              onTap: widget.onTap,
+              child: Text("Login Now "))
           ],
          )
           // register button
