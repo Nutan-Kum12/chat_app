@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider_tutorial/components/my_buttom.dart';
 import 'package:provider_tutorial/components/my_textfield.dart';
-import 'package:provider_tutorial/pages/home_page.dart';
-import 'package:provider_tutorial/pages/login_page.dart';
+// import 'package:provider_tutorial/pages/home_page.dart';
+// import 'package:provider_tutorial/pages/login_page.dart';
 class RegisterPage extends StatefulWidget {
   final TextEditingController _emailController=TextEditingController();
   final TextEditingController _pwController=TextEditingController();

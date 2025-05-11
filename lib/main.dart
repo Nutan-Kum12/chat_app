@@ -1,12 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider_tutorial/auth/login_or_register.dart';
-import 'package:provider_tutorial/pages/login_page.dart';
-import 'package:provider_tutorial/pages/register_page.dart';
+import 'package:provider_tutorial/auth/auth_gate.dart';
+import 'package:provider_tutorial/firebase_options.dart';
 import 'package:provider_tutorial/themes/light_theme.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  try {
+    await Firebase.initializeApp();  // Initialize Firebase
+    runApp(MyApp());
+  } catch (e) {
+    print("Error initializing Firebase: $e");
+  }
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: lightMode,
-      home: LoginOrRegister()
+      home: AuthGate()
     );
   }
 }
